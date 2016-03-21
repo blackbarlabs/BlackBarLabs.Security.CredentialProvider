@@ -14,6 +14,7 @@ namespace BlackBarLabs.Security.CredentialProvider
         /// <param name="token">Token/password to use to authenticate the user</param>
         /// <returns>Value which will be stored for future access to this system. The return value must
         /// not be a default or empty string if the token was valid.</returns>
-        Task<string> RedeemTokenAsync(Uri providerId, string username, string token);
+        Task<TResult> RedeemTokenAsync<TResult>(Uri providerId, string username, string token,
+            Func<string, TResult> success, Func<TResult> invalidCredentials, Func<TResult> couldNotConnect);
     }
 }
