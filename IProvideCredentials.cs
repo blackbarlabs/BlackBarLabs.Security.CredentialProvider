@@ -19,5 +19,9 @@ namespace BlackBarLabs.Security.CredentialProvider
         /// not be a default or empty string if the token was valid.</returns>
         Task<TResult> RedeemTokenAsync<TResult>(Uri providerId, string username, string token,
             Func<string, TResult> success, Func<string, TResult> invalidCredentials, Func<TResult> couldNotConnect);
+
+        Task<TResult> UpdateTokenAsync<TResult>(Uri providerId, string username, string token,
+            Func<string, TResult> success, Func<TResult> doesNotExist, Func<TResult> updateFailed);
+
     }
 }
