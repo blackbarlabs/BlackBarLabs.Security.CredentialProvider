@@ -23,5 +23,8 @@ namespace BlackBarLabs.Security.CredentialProvider
         Task<TResult> UpdateTokenAsync<TResult>(Uri providerId, string username, string token,
             Func<string, TResult> success, Func<TResult> doesNotExist, Func<TResult> updateFailed);
 
+        Task<TResult> GetCredentialsAsync<TResult>(Uri providerId, string username,
+            Func<string, TResult> success, Func<TResult> doesNotExist);
+
     }
 }
